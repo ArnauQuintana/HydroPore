@@ -1,0 +1,1 @@
+"./ADC.obj" "./COMs.obj" "./Clocks.obj" "./Control.obj" "./DrivingH.obj" "./main.obj" "../lnk_msp430fr6043.cmd" -llibmath.a -llibc.a 
