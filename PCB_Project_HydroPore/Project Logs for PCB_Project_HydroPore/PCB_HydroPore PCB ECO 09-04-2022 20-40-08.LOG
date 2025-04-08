@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=CAM1_RX Pin=CON1-2
+Removed Pin From Net: NetName=CAM1_TX Pin=CON1-3
+Removed Pin From Net: NetName=GND Pin=CON1-5
+Removed Pin From Net: NetName=5Vdc_CAM Pin=CON1-9
+Removed Pin From Net: NetName=CAM2_RX Pin=CON2-2
+Removed Pin From Net: NetName=CAM2_TX Pin=CON2-3
+Removed Pin From Net: NetName=5Vdc_CAM Pin=CON2-9
+Removed Pin From Net: NetName=CAM3_RX Pin=CON3-2
+Removed Pin From Net: NetName=CAM3_TX Pin=CON3-3
+Removed Pin From Net: NetName=GND Pin=CON3-5
+Removed Pin From Net: NetName=5Vdc_CAM Pin=CON3-9
+Removed Pin From Net: NetName=CAM4_RX Pin=CON4-2
+Removed Pin From Net: NetName=CAM4_TX Pin=CON4-3
+Removed Pin From Net: NetName=GND Pin=CON4-5
+Removed Pin From Net: NetName=5Vdc_CAM Pin=CON4-9
+Removed Member From Class: ClassName=MCU Member=CON1
+Removed Member From Class: ClassName=MCU Member=CON2
+Removed Member From Class: ClassName=MCU Member=CON3
+Removed Member From Class: ClassName=MCU Member=CON4
+Added Pin To Net: NetName=CAM1_TX Pin=J1-2
+Added Member To Class: ClassName=MCU Member=Component J1 RJ11-6N-B

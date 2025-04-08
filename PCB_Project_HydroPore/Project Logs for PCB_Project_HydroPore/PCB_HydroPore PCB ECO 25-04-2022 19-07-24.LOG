@@ -1,0 +1,64 @@
+Removed Pin From Net: NetName=GND* Pin=C2-2
+Removed Pin From Net: NetName=GND* Pin=C7-2
+Removed Pin From Net: NetName=GND* Pin=C11-2
+Removed Pin From Net: NetName=GND* Pin=C73-2
+Added Component: Designator=C26(0603 - duplicate)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Radial Cap, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "2.2uF"; VariantName = "[No Variations]"
+Added Component: Designator=C106(0603 - duplicate)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Radial Cap, Thru-Hole; 2 Leads; 0.3 in Pin Spacing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "RAD-0.3"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Added Component: Designator=R77(1206)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageDescription"; Value = "Axial Device, Thru-Hole; 2 Leads; 0.4 in Pin Spacing"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PackageReference"; Value = "AXIAL-0.4"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=U21(CONV_MEA1D1509SC)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Arrow_Electronics-Purchase-URL"; Value = "https://snapeda.com/shop?store=Arrow+Electronics&id=1237682"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Availability"; Value = "Bad"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "CUI_purchase_URL"; Value = "https://www.cui.com/product/dc-dc-converters/igbt-driver/vqa-series?utm_source=snapeda.com&utm_medium=referral&utm_campaign=snapedaBOM"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "CUI Inc."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser-Purchase-URL"; Value = "https://snapeda.com/shop?store=Mouser&id=1237682"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "VQA-S15-D15-SIP"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "SIP-7 CUI"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/VQA-S15-D15-SIP/CUI/view-part/1237682/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=Actuator+ Pin=C2-2
+Added Pin To Net: NetName=Actuator+ Pin=C7-2
+Added Pin To Net: NetName=Actuator- Pin=C11-2
+Added Pin To Net: NetName=GND Pin=C26-1
+Added Pin To Net: NetName=15Vdc Pin=C26-2
+Added Pin To Net: NetName=Actuator- Pin=C73-2
+Added Pin To Net: NetName=NetC81_2 Pin=C84-2
+Added Pin To Net: NetName=NetC81_2 Pin=C85-2
+Added Pin To Net: NetName=GND* Pin=C106-1
+Added Pin To Net: NetName=Vcc_HDriver Pin=C106-2
+Added Pin To Net: NetName=NetC81_2 Pin=FB4-2
+Added Pin To Net: NetName=GND* Pin=R77-1
+Added Pin To Net: NetName=Vcc_HDriver Pin=R77-2
+Added Pin To Net: NetName=NetC81_2 Pin=U3-1
+Added Pin To Net: NetName=15Vdc Pin=U21-1
+Added Pin To Net: NetName=GND Pin=U21-2
+Added Pin To Net: NetName=GND* Pin=U21-4
+Added Pin To Net: NetName=Vcc_HDriver Pin=U21-6
+Added Member To Class: ClassName=Power Member=Component C26 Cap
+Added Member To Class: ClassName=Power Member=Component C106 Cap
+Added Member To Class: ClassName=Power Member=Component R77 100
+Added Member To Class: ClassName=Power Member=Component U21 MEA1D1509SC

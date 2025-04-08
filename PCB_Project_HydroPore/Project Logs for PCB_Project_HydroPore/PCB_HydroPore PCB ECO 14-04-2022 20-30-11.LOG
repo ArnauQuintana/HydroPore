@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=GND Pin=C126-1
+Added Pin To Net: NetName=NetQ3_3 Pin=R40-1
+Added Pin To Net: NetName=NetQ3_3 Pin=R41-2
+Change Net Name : Old Net Name=NetQ3_3 New Net Name=BRIDGE_SENSE

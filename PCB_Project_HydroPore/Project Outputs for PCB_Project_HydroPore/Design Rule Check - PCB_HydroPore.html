@@ -1,0 +1,754 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Program Files\Altium\AD19\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">27/04/2022</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">19:15:36</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc" class="file"><acronym title="C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc">C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">142</td></tr>
+</table>
+</td>
+</table><a name="IDV0SXB5NOADQ5PNDJWAJO3B1OPGLNA0I5DSRWTEBR5Y0JBK5MKIVI"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLANOHFNLG3IFCMVOZGIWALPA1ID3SLB1AMU1KWKRQ5PL0Y3QHWEH">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHT3EMCSBUUSFDKHQZLV3MPCWSCYURICNK0Z3KNENNGSWAUOMJGNC">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUAXYBLMUSMYTH30SSS5RJOYEFOJMYIQHJ3ARMWIIX4DQMPPVWC5N">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJPY1FAUSUTNEIS34FNRCTZ3ZJPR0PP4WFUXRXFCVKZEC2XOU4T4E">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUWPX1VFM3JLJD0CWPBNHN05VCKICFOCNG45WYOHPSMQTQYQZ3T1D">Width Constraint (Min=0.15mm) (Max=2mm) (Preferred=0.5mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDVNG2XT003KFOII0L2XMSA4YSPGZKZQZ3VVFYBPS3LTDCIHNORVM">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDK05JAPNHR0VQO1AFJ1LYT2LYRC4MBSB0JBCNEGP0BSSNYQFPLAJD">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">13</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID2XKCT5S4SOPTKWRACAGUWT0Z3HMLBWRRVLLTMGFNUKPDACGX30WE">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMDHMWVW2UXULC4ZV5OLQP0Z1RLOCISXYCN5DEOJK4W2PS2L3U0RI">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">123</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTV5F4M5TEFVHDLVZO5TX3KI2VDZV3P3Q5Q1AJVMGJZKCOFK53FOK">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQ2WCIWRXRLLPGHIJONGHZ2IPIHPCC2KMEA4MRIF0ZCTWKG55C3ZE">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">142</td>
+</tr>
+</table><br><a name="IDUAXYBLMUSMYTH30SSS5RJOYEFOJMYIQHJ3ARMWIIX4DQMPPVWC5N"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6744.032mil|Location2.X=6988.252mil|Location1.Y=3739.307mil|Location2.Y=4984.315mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6744.032mil|Location2.X=6988.252mil|Location1.Y=3739.307mil|Location2.Y=4984.315mil|Absolute=True">Un-Routed Net Constraint: Net EARTH Between Pad P15-7(173.8mm,96.1mm) on Multi-Layer And Pad Free-1(174.4mm,123.5mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1933.008mil|Location2.X=2216.598mil|Location1.Y=1059.976mil|Location2.Y=4027.622mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1933.008mil|Location2.X=2216.598mil|Location1.Y=1059.976mil|Location2.Y=4027.622mil|Absolute=True">Un-Routed Net Constraint: Net EARTH Between Pad Free-3(52.2mm,30.025mm) on Multi-Layer And Pad Free-2(53.2mm,99.2mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1972.378mil|Location2.X=4169.354mil|Location1.Y=2574.74mil|Location2.Y=4027.622mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1972.378mil|Location2.X=4169.354mil|Location1.Y=2574.74mil|Location2.Y=4027.622mil|Absolute=True">Un-Routed Net Constraint: Net EARTH Between Pad Free-2(53.2mm,99.2mm) on Multi-Layer And Pad Free-5(102.8mm,68.5mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3925.134mil|Location2.X=6067.976mil|Location1.Y=1374.937mil|Location2.Y=2818.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3925.134mil|Location2.X=6067.976mil|Location1.Y=1374.937mil|Location2.Y=2818.961mil|Absolute=True">Un-Routed Net Constraint: Net EARTH Between Pad Free-5(102.8mm,68.5mm) on Multi-Layer And Pad Free-4(151.025mm,38.025mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5823.756mil|Location2.X=6885.693mil|Location1.Y=1374.937mil|Location2.Y=3071.52mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5823.756mil|Location2.X=6885.693mil|Location1.Y=1374.937mil|Location2.Y=3071.52mil|Absolute=True">Un-Routed Net Constraint: Net EARTH Between Pad Free-4(151.025mm,38.025mm) on Multi-Layer And Pad P17-7(173.775mm,76.895mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6797.378mil|Location2.X=6886.677mil|Location1.Y=2983.205mil|Location2.Y=3827.622mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6797.378mil|Location2.X=6886.677mil|Location1.Y=2983.205mil|Location2.Y=3827.622mil|Absolute=True">Un-Routed Net Constraint: Net EARTH Between Pad P17-7(173.775mm,76.895mm) on Multi-Layer And Pad P15-7(173.8mm,96.1mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDK05JAPNHR0VQO1AFJ1LYT2LYRC4MBSB0JBCNEGP0BSSNYQFPLAJD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6802.525mil|Location2.X=6929.759mil|Location1.Y=4798.588mil|Location2.Y=4925.822mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6802.525mil|Location2.X=6929.759mil|Location1.Y=4798.588mil|Location2.Y=4925.822mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad Free-1(174.4mm,123.5mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2030.871mil|Location2.X=2158.105mil|Location1.Y=3841.895mil|Location2.Y=3969.129mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2030.871mil|Location2.X=2158.105mil|Location1.Y=3841.895mil|Location2.Y=3969.129mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad Free-2(53.2mm,99.2mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1991.501mil|Location2.X=2118.735mil|Location1.Y=1118.469mil|Location2.Y=1245.704mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1991.501mil|Location2.X=2118.735mil|Location1.Y=1118.469mil|Location2.Y=1245.704mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad Free-3(52.2mm,30.025mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5882.249mil|Location2.X=6009.483mil|Location1.Y=1433.43mil|Location2.Y=1560.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5882.249mil|Location2.X=6009.483mil|Location1.Y=1433.43mil|Location2.Y=1560.664mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad Free-4(151.025mm,38.025mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3983.627mil|Location2.X=4110.861mil|Location1.Y=2633.233mil|Location2.Y=2760.468mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3983.627mil|Location2.X=4110.861mil|Location1.Y=2633.233mil|Location2.Y=2760.468mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad Free-5(102.8mm,68.5mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4044.06mil|Location2.X=4173.263mil|Location1.Y=4585.005mil|Location2.Y=4714.208mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4044.06mil|Location2.X=4173.263mil|Location1.Y=4585.005mil|Location2.Y=4714.208mil|Absolute=True">Hole Size Constraint: (3.25mm &gt; 2.54mm) Pad J3-(104.36mm,118.1mm) on Multi-Layer Actual Hole Size = 3.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3644.06mil|Location2.X=3773.263mil|Location1.Y=4585.005mil|Location2.Y=4714.208mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3644.06mil|Location2.X=3773.263mil|Location1.Y=4585.005mil|Location2.Y=4714.208mil|Absolute=True">Hole Size Constraint: (3.25mm &gt; 2.54mm) Pad J3-(94.2mm,118.1mm) on Multi-Layer Actual Hole Size = 3.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4455.084mil|Location2.X=4584.286mil|Location1.Y=4581.068mil|Location2.Y=4710.271mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4455.084mil|Location2.X=4584.286mil|Location1.Y=4581.068mil|Location2.Y=4710.271mil|Absolute=True">Hole Size Constraint: (3.25mm &gt; 2.54mm) Pad J4-(114.8mm,118mm) on Multi-Layer Actual Hole Size = 3.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4855.084mil|Location2.X=4984.286mil|Location1.Y=4581.068mil|Location2.Y=4710.271mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4855.084mil|Location2.X=4984.286mil|Location1.Y=4581.068mil|Location2.Y=4710.271mil|Absolute=True">Hole Size Constraint: (3.25mm &gt; 2.54mm) Pad J4-(124.96mm,118mm) on Multi-Layer Actual Hole Size = 3.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5262.17mil|Location2.X=5391.373mil|Location1.Y=4581.068mil|Location2.Y=4710.271mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5262.17mil|Location2.X=5391.373mil|Location1.Y=4581.068mil|Location2.Y=4710.271mil|Absolute=True">Hole Size Constraint: (3.25mm &gt; 2.54mm) Pad J5-(135.3mm,118mm) on Multi-Layer Actual Hole Size = 3.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5662.17mil|Location2.X=5791.373mil|Location1.Y=4581.068mil|Location2.Y=4710.271mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5662.17mil|Location2.X=5791.373mil|Location1.Y=4581.068mil|Location2.Y=4710.271mil|Absolute=True">Hole Size Constraint: (3.25mm &gt; 2.54mm) Pad J5-(145.46mm,118mm) on Multi-Layer Actual Hole Size = 3.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6065.32mil|Location2.X=6194.523mil|Location1.Y=4585.005mil|Location2.Y=4714.208mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6065.32mil|Location2.X=6194.523mil|Location1.Y=4585.005mil|Location2.Y=4714.208mil|Absolute=True">Hole Size Constraint: (3.25mm &gt; 2.54mm) Pad J6-(155.7mm,118.1mm) on Multi-Layer Actual Hole Size = 3.25mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6465.32mil|Location2.X=6594.523mil|Location1.Y=4585.005mil|Location2.Y=4714.208mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6465.32mil|Location2.X=6594.523mil|Location1.Y=4585.005mil|Location2.Y=4714.208mil|Absolute=True">Hole Size Constraint: (3.25mm &gt; 2.54mm) Pad J6-(165.86mm,118.1mm) on Multi-Layer Actual Hole Size = 3.25mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDMDHMWVW2UXULC4ZV5OLQP0Z1RLOCISXYCN5DEOJK4W2PS2L3U0RI"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6449.037mil|Location2.X=6460.287mil|Location1.Y=2097.722mil|Location2.Y=2108.972mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6449.037mil|Location2.X=6460.287mil|Location1.Y=2097.722mil|Location2.Y=2108.972mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad IC1-1(164.6mm,52.95mm) on Top Layer And Pad IC1-2(164.6mm,53.9mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6449.037mil|Location2.X=6460.287mil|Location1.Y=2135.123mil|Location2.Y=2146.373mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6449.037mil|Location2.X=6460.287mil|Location1.Y=2135.123mil|Location2.Y=2146.373mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad IC1-2(164.6mm,53.9mm) on Top Layer And Pad IC1-3(164.6mm,54.85mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6452.974mil|Location2.X=6464.224mil|Location1.Y=1700.084mil|Location2.Y=1711.334mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6452.974mil|Location2.X=6464.224mil|Location1.Y=1700.084mil|Location2.Y=1711.334mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad IC2-1(164.7mm,42.85mm) on Top Layer And Pad IC2-2(164.7mm,43.8mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6452.974mil|Location2.X=6464.224mil|Location1.Y=1737.485mil|Location2.Y=1748.735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6452.974mil|Location2.X=6464.224mil|Location1.Y=1737.485mil|Location2.Y=1748.735mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad IC2-2(164.7mm,43.8mm) on Top Layer And Pad IC2-3(164.7mm,44.75mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2888.612mil|Location2.X=2899.862mil|Location1.Y=3735.572mil|Location2.Y=3746.822mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2888.612mil|Location2.X=2899.862mil|Location1.Y=3735.572mil|Location2.Y=3746.822mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad IC3-1(73.989mm,95.678mm) on Top Layer And Pad IC3-2(73.039mm,95.678mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2851.21mil|Location2.X=2862.46mil|Location1.Y=3735.572mil|Location2.Y=3746.822mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2851.21mil|Location2.X=2862.46mil|Location1.Y=3735.572mil|Location2.Y=3746.822mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad IC3-2(73.039mm,95.678mm) on Top Layer And Pad IC3-3(72.089mm,95.678mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6449.037mil|Location2.X=6460.287mil|Location1.Y=1204.021mil|Location2.Y=1215.271mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6449.037mil|Location2.X=6460.287mil|Location1.Y=1204.021mil|Location2.Y=1215.271mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad IC5-1(164.6mm,30.25mm) on Top Layer And Pad IC5-2(164.6mm,31.2mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6449.037mil|Location2.X=6460.287mil|Location1.Y=1241.422mil|Location2.Y=1252.672mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6449.037mil|Location2.X=6460.287mil|Location1.Y=1241.422mil|Location2.Y=1252.672mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad IC5-2(164.6mm,31.2mm) on Top Layer And Pad IC5-3(164.6mm,32.15mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2316.336mil|Location2.X=2327.586mil|Location1.Y=3848.194mil|Location2.Y=3859.444mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2316.336mil|Location2.X=2327.586mil|Location1.Y=3848.194mil|Location2.Y=3859.444mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U12-1(59.629mm,98.362mm) on Top Layer And Pad U12-2(59.629mm,97.412mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2316.336mil|Location2.X=2327.586mil|Location1.Y=3810.793mil|Location2.Y=3822.043mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2316.336mil|Location2.X=2327.586mil|Location1.Y=3810.793mil|Location2.Y=3822.043mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U12-2(59.629mm,97.412mm) on Top Layer And Pad U12-3(59.629mm,96.462mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2433.249mil|Location2.X=2444.499mil|Location1.Y=4317.958mil|Location2.Y=4329.208mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2433.249mil|Location2.X=2444.499mil|Location1.Y=4317.958mil|Location2.Y=4329.208mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U13-1(62.599mm,110.294mm) on Top Layer And Pad U13-2(62.599mm,109.344mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2433.249mil|Location2.X=2444.499mil|Location1.Y=4280.556mil|Location2.Y=4291.806mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2433.249mil|Location2.X=2444.499mil|Location1.Y=4280.556mil|Location2.Y=4291.806mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U13-2(62.599mm,109.344mm) on Top Layer And Pad U13-3(62.599mm,108.394mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3122.052mil|Location2.X=3133.302mil|Location1.Y=4369.198mil|Location2.Y=4380.448mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3122.052mil|Location2.X=3133.302mil|Location1.Y=4369.198mil|Location2.Y=4380.448mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.037mm &lt; 0.254mm) Between Pad U14-1(78.873mm,109.809mm) on Top Layer And Pad U14-2(80.013mm,109.809mm) on Top Layer [Top Solder] Mask Sliver [0.037mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3256.698mil|Location2.X=3267.948mil|Location1.Y=4369.198mil|Location2.Y=4380.448mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3256.698mil|Location2.X=3267.948mil|Location1.Y=4369.198mil|Location2.Y=4380.448mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.037mm &lt; 0.254mm) Between Pad U14-4(82.293mm,109.809mm) on Top Layer And Pad U14-5(83.433mm,109.809mm) on Top Layer [Top Solder] Mask Sliver [0.037mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6277.84mil|Location2.X=6289.09mil|Location1.Y=2733.548mil|Location2.Y=2744.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6277.84mil|Location2.X=6289.09mil|Location1.Y=2733.548mil|Location2.Y=2744.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U18-1(159.35mm,68.875mm) on Top Layer And Pad U18-2(159.85mm,68.875mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6277.84mil|Location2.X=6289.09mil|Location1.Y=2847.722mil|Location2.Y=2858.972mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6277.84mil|Location2.X=6289.09mil|Location1.Y=2847.722mil|Location2.Y=2858.972mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U18-10(159.35mm,73.175mm) on Top Layer And Pad U18-9(159.85mm,73.175mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6297.525mil|Location2.X=6308.775mil|Location1.Y=2733.548mil|Location2.Y=2744.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6297.525mil|Location2.X=6308.775mil|Location1.Y=2733.548mil|Location2.Y=2744.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U18-2(159.85mm,68.875mm) on Top Layer And Pad U18-3(160.35mm,68.875mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6317.21mil|Location2.X=6328.46mil|Location1.Y=2733.548mil|Location2.Y=2744.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6317.21mil|Location2.X=6328.46mil|Location1.Y=2733.548mil|Location2.Y=2744.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U18-3(160.35mm,68.875mm) on Top Layer And Pad U18-4(160.85mm,68.875mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6336.895mil|Location2.X=6348.145mil|Location1.Y=2733.548mil|Location2.Y=2744.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6336.895mil|Location2.X=6348.145mil|Location1.Y=2733.548mil|Location2.Y=2744.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U18-4(160.85mm,68.875mm) on Top Layer And Pad U18-5(161.35mm,68.875mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6336.895mil|Location2.X=6348.145mil|Location1.Y=2847.722mil|Location2.Y=2858.972mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6336.895mil|Location2.X=6348.145mil|Location1.Y=2847.722mil|Location2.Y=2858.972mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U18-6(161.35mm,73.175mm) on Top Layer And Pad U18-7(160.85mm,73.175mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6317.21mil|Location2.X=6328.46mil|Location1.Y=2847.722mil|Location2.Y=2858.972mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6317.21mil|Location2.X=6328.46mil|Location1.Y=2847.722mil|Location2.Y=2858.972mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U18-7(160.85mm,73.175mm) on Top Layer And Pad U18-8(160.35mm,73.175mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6297.525mil|Location2.X=6308.775mil|Location1.Y=2847.722mil|Location2.Y=2858.972mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6297.525mil|Location2.X=6308.775mil|Location1.Y=2847.722mil|Location2.Y=2858.972mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U18-8(160.35mm,73.175mm) on Top Layer And Pad U18-9(159.85mm,73.175mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6271.934mil|Location2.X=6283.184mil|Location1.Y=3492.406mil|Location2.Y=3503.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6271.934mil|Location2.X=6283.184mil|Location1.Y=3492.406mil|Location2.Y=3503.656mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U19-1(159.2mm,88.15mm) on Top Layer And Pad U19-2(159.7mm,88.15mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6271.934mil|Location2.X=6283.184mil|Location1.Y=3606.58mil|Location2.Y=3617.83mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6271.934mil|Location2.X=6283.184mil|Location1.Y=3606.58mil|Location2.Y=3617.83mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U19-10(159.2mm,92.45mm) on Top Layer And Pad U19-9(159.7mm,92.45mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6291.619mil|Location2.X=6302.869mil|Location1.Y=3492.406mil|Location2.Y=3503.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6291.619mil|Location2.X=6302.869mil|Location1.Y=3492.406mil|Location2.Y=3503.656mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U19-2(159.7mm,88.15mm) on Top Layer And Pad U19-3(160.2mm,88.15mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6311.304mil|Location2.X=6322.554mil|Location1.Y=3492.406mil|Location2.Y=3503.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6311.304mil|Location2.X=6322.554mil|Location1.Y=3492.406mil|Location2.Y=3503.656mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U19-3(160.2mm,88.15mm) on Top Layer And Pad U19-4(160.7mm,88.15mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6330.989mil|Location2.X=6342.239mil|Location1.Y=3492.406mil|Location2.Y=3503.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6330.989mil|Location2.X=6342.239mil|Location1.Y=3492.406mil|Location2.Y=3503.656mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U19-4(160.7mm,88.15mm) on Top Layer And Pad U19-5(161.2mm,88.15mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6330.989mil|Location2.X=6342.239mil|Location1.Y=3606.58mil|Location2.Y=3617.83mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6330.989mil|Location2.X=6342.239mil|Location1.Y=3606.58mil|Location2.Y=3617.83mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U19-6(161.2mm,92.45mm) on Top Layer And Pad U19-7(160.7mm,92.45mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6311.304mil|Location2.X=6322.554mil|Location1.Y=3606.58mil|Location2.Y=3617.83mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6311.304mil|Location2.X=6322.554mil|Location1.Y=3606.58mil|Location2.Y=3617.83mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U19-7(160.7mm,92.45mm) on Top Layer And Pad U19-8(160.2mm,92.45mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6291.619mil|Location2.X=6302.869mil|Location1.Y=3606.58mil|Location2.Y=3617.83mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6291.619mil|Location2.X=6302.869mil|Location1.Y=3606.58mil|Location2.Y=3617.83mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U19-8(160.2mm,92.45mm) on Top Layer And Pad U19-9(159.7mm,92.45mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5231.58mil|Location2.X=5242.83mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5231.58mil|Location2.X=5242.83mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-1(132.775mm,50.695mm) on Top Layer And Pad U3-2(133.275mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5408.745mil|Location2.X=5419.995mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5408.745mil|Location2.X=5419.995mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-10(137.275mm,50.695mm) on Top Layer And Pad U3-11(137.775mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5389.06mil|Location2.X=5400.31mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5389.06mil|Location2.X=5400.31mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-10(137.275mm,50.695mm) on Top Layer And Pad U3-9(136.775mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5428.43mil|Location2.X=5439.68mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5428.43mil|Location2.X=5439.68mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-11(137.775mm,50.695mm) on Top Layer And Pad U3-12(138.275mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5448.115mil|Location2.X=5459.365mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5448.115mil|Location2.X=5459.365mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-12(138.275mm,50.695mm) on Top Layer And Pad U3-13(138.775mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5438.273mil|Location2.X=5449.523mil|Location1.Y=2029.316mil|Location2.Y=2040.566mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5438.273mil|Location2.X=5449.523mil|Location1.Y=2029.316mil|Location2.Y=2040.566mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.222mm &lt; 0.254mm) Between Pad U3-12(138.275mm,50.695mm) on Top Layer And Via (138.275mm,52.4mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.222mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5467.8mil|Location2.X=5479.05mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5467.8mil|Location2.X=5479.05mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-13(138.775mm,50.695mm) on Top Layer And Pad U3-14(139.275mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5487.485mil|Location2.X=5498.735mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5487.485mil|Location2.X=5498.735mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-14(139.275mm,50.695mm) on Top Layer And Pad U3-15(139.775mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5507.17mil|Location2.X=5518.42mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5507.17mil|Location2.X=5518.42mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-15(139.775mm,50.695mm) on Top Layer And Pad U3-16(140.275mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5526.855mil|Location2.X=5538.105mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5526.855mil|Location2.X=5538.105mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-16(140.275mm,50.695mm) on Top Layer And Pad U3-17(140.775mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5546.54mil|Location2.X=5557.79mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5546.54mil|Location2.X=5557.79mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-17(140.775mm,50.695mm) on Top Layer And Pad U3-18(141.275mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5566.225mil|Location2.X=5577.475mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5566.225mil|Location2.X=5577.475mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-18(141.275mm,50.695mm) on Top Layer And Pad U3-19(141.775mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5585.91mil|Location2.X=5597.16mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5585.91mil|Location2.X=5597.16mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-19(141.775mm,50.695mm) on Top Layer And Pad U3-20(142.275mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5251.265mil|Location2.X=5262.515mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5251.265mil|Location2.X=5262.515mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-2(133.275mm,50.695mm) on Top Layer And Pad U3-3(133.775mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2076.068mil|Location2.Y=2087.318mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2076.068mil|Location2.Y=2087.318mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-21(144.205mm,52.625mm) on Top Layer And Pad U3-22(144.205mm,53.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2095.753mil|Location2.Y=2107.003mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2095.753mil|Location2.Y=2107.003mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-22(144.205mm,53.125mm) on Top Layer And Pad U3-23(144.205mm,53.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2115.438mil|Location2.Y=2126.688mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2115.438mil|Location2.Y=2126.688mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-23(144.205mm,53.625mm) on Top Layer And Pad U3-24(144.205mm,54.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2135.123mil|Location2.Y=2146.373mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2135.123mil|Location2.Y=2146.373mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-24(144.205mm,54.125mm) on Top Layer And Pad U3-25(144.205mm,54.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2154.808mil|Location2.Y=2166.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2154.808mil|Location2.Y=2166.058mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-25(144.205mm,54.625mm) on Top Layer And Pad U3-26(144.205mm,55.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2174.493mil|Location2.Y=2185.743mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2174.493mil|Location2.Y=2185.743mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-26(144.205mm,55.125mm) on Top Layer And Pad U3-27(144.205mm,55.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2194.178mil|Location2.Y=2205.428mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2194.178mil|Location2.Y=2205.428mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-27(144.205mm,55.625mm) on Top Layer And Pad U3-28(144.205mm,56.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2213.863mil|Location2.Y=2225.113mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2213.863mil|Location2.Y=2225.113mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-28(144.205mm,56.125mm) on Top Layer And Pad U3-29(144.205mm,56.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2233.548mil|Location2.Y=2244.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2233.548mil|Location2.Y=2244.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-29(144.205mm,56.625mm) on Top Layer And Pad U3-30(144.205mm,57.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5270.95mil|Location2.X=5282.2mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5270.95mil|Location2.X=5282.2mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-3(133.775mm,50.695mm) on Top Layer And Pad U3-4(134.275mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2253.233mil|Location2.Y=2264.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2253.233mil|Location2.Y=2264.483mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-30(144.205mm,57.125mm) on Top Layer And Pad U3-31(144.205mm,57.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2272.918mil|Location2.Y=2284.168mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2272.918mil|Location2.Y=2284.168mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-31(144.205mm,57.625mm) on Top Layer And Pad U3-32(144.205mm,58.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2292.603mil|Location2.Y=2303.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2292.603mil|Location2.Y=2303.853mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-32(144.205mm,58.125mm) on Top Layer And Pad U3-33(144.205mm,58.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2312.288mil|Location2.Y=2323.538mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2312.288mil|Location2.Y=2323.538mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-33(144.205mm,58.625mm) on Top Layer And Pad U3-34(144.205mm,59.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2331.973mil|Location2.Y=2343.223mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2331.973mil|Location2.Y=2343.223mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-34(144.205mm,59.125mm) on Top Layer And Pad U3-35(144.205mm,59.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2351.658mil|Location2.Y=2362.908mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2351.658mil|Location2.Y=2362.908mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-35(144.205mm,59.625mm) on Top Layer And Pad U3-36(144.205mm,60.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2371.343mil|Location2.Y=2382.593mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2371.343mil|Location2.Y=2382.593mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-36(144.205mm,60.125mm) on Top Layer And Pad U3-37(144.205mm,60.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2391.028mil|Location2.Y=2402.278mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2391.028mil|Location2.Y=2402.278mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-37(144.205mm,60.625mm) on Top Layer And Pad U3-38(144.205mm,61.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2410.713mil|Location2.Y=2421.963mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2410.713mil|Location2.Y=2421.963mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-38(144.205mm,61.125mm) on Top Layer And Pad U3-39(144.205mm,61.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2430.398mil|Location2.Y=2441.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5637.029mil|Location2.X=5648.279mil|Location1.Y=2430.398mil|Location2.Y=2441.648mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-39(144.205mm,61.625mm) on Top Layer And Pad U3-40(144.205mm,62.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5290.635mil|Location2.X=5301.885mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5290.635mil|Location2.X=5301.885mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-4(134.275mm,50.695mm) on Top Layer And Pad U3-5(134.775mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5585.91mil|Location2.X=5597.16mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5585.91mil|Location2.X=5597.16mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-41(142.275mm,64.055mm) on Top Layer And Pad U3-42(141.775mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5566.225mil|Location2.X=5577.475mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5566.225mil|Location2.X=5577.475mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-42(141.775mm,64.055mm) on Top Layer And Pad U3-43(141.275mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5546.54mil|Location2.X=5557.79mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5546.54mil|Location2.X=5557.79mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-43(141.275mm,64.055mm) on Top Layer And Pad U3-44(140.775mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5526.855mil|Location2.X=5538.105mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5526.855mil|Location2.X=5538.105mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-44(140.775mm,64.055mm) on Top Layer And Pad U3-45(140.275mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5507.17mil|Location2.X=5518.42mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5507.17mil|Location2.X=5518.42mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-45(140.275mm,64.055mm) on Top Layer And Pad U3-46(139.775mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5487.485mil|Location2.X=5498.735mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5487.485mil|Location2.X=5498.735mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-46(139.775mm,64.055mm) on Top Layer And Pad U3-47(139.275mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5467.8mil|Location2.X=5479.05mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5467.8mil|Location2.X=5479.05mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-47(139.275mm,64.055mm) on Top Layer And Pad U3-48(138.775mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5448.115mil|Location2.X=5459.365mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5448.115mil|Location2.X=5459.365mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-48(138.775mm,64.055mm) on Top Layer And Pad U3-49(138.275mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5428.43mil|Location2.X=5439.68mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5428.43mil|Location2.X=5439.68mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-49(138.275mm,64.055mm) on Top Layer And Pad U3-50(137.775mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5310.32mil|Location2.X=5321.57mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5310.32mil|Location2.X=5321.57mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-5(134.775mm,50.695mm) on Top Layer And Pad U3-6(135.275mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5408.745mil|Location2.X=5419.995mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5408.745mil|Location2.X=5419.995mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-50(137.775mm,64.055mm) on Top Layer And Pad U3-51(137.275mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5389.06mil|Location2.X=5400.31mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5389.06mil|Location2.X=5400.31mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-51(137.275mm,64.055mm) on Top Layer And Pad U3-52(136.775mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5369.375mil|Location2.X=5380.625mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5369.375mil|Location2.X=5380.625mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-52(136.775mm,64.055mm) on Top Layer And Pad U3-53(136.275mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5349.69mil|Location2.X=5360.94mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5349.69mil|Location2.X=5360.94mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-53(136.275mm,64.055mm) on Top Layer And Pad U3-54(135.775mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5330.005mil|Location2.X=5341.255mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5330.005mil|Location2.X=5341.255mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-54(135.775mm,64.055mm) on Top Layer And Pad U3-55(135.275mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5310.32mil|Location2.X=5321.57mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5310.32mil|Location2.X=5321.57mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-55(135.275mm,64.055mm) on Top Layer And Pad U3-56(134.775mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5290.635mil|Location2.X=5301.885mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5290.635mil|Location2.X=5301.885mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-56(134.775mm,64.055mm) on Top Layer And Pad U3-57(134.275mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5270.95mil|Location2.X=5282.2mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5270.95mil|Location2.X=5282.2mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-57(134.275mm,64.055mm) on Top Layer And Pad U3-58(133.775mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5251.265mil|Location2.X=5262.515mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5251.265mil|Location2.X=5262.515mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-58(133.775mm,64.055mm) on Top Layer And Pad U3-59(133.275mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5231.58mil|Location2.X=5242.83mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5231.58mil|Location2.X=5242.83mil|Location1.Y=2481.517mil|Location2.Y=2492.767mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-59(133.275mm,64.055mm) on Top Layer And Pad U3-60(132.775mm,64.055mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5330.005mil|Location2.X=5341.255mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5330.005mil|Location2.X=5341.255mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-6(135.275mm,50.695mm) on Top Layer And Pad U3-7(135.775mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2430.398mil|Location2.Y=2441.648mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2430.398mil|Location2.Y=2441.648mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-61(130.845mm,62.125mm) on Top Layer And Pad U3-62(130.845mm,61.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2410.713mil|Location2.Y=2421.963mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2410.713mil|Location2.Y=2421.963mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-62(130.845mm,61.625mm) on Top Layer And Pad U3-63(130.845mm,61.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2391.028mil|Location2.Y=2402.278mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2391.028mil|Location2.Y=2402.278mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-63(130.845mm,61.125mm) on Top Layer And Pad U3-64(130.845mm,60.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2371.343mil|Location2.Y=2382.593mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2371.343mil|Location2.Y=2382.593mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-64(130.845mm,60.625mm) on Top Layer And Pad U3-65(130.845mm,60.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2351.658mil|Location2.Y=2362.908mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2351.658mil|Location2.Y=2362.908mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-65(130.845mm,60.125mm) on Top Layer And Pad U3-66(130.845mm,59.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2331.973mil|Location2.Y=2343.223mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2331.973mil|Location2.Y=2343.223mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-66(130.845mm,59.625mm) on Top Layer And Pad U3-67(130.845mm,59.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2312.288mil|Location2.Y=2323.538mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2312.288mil|Location2.Y=2323.538mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-67(130.845mm,59.125mm) on Top Layer And Pad U3-68(130.845mm,58.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2292.603mil|Location2.Y=2303.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2292.603mil|Location2.Y=2303.853mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-68(130.845mm,58.625mm) on Top Layer And Pad U3-69(130.845mm,58.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2272.918mil|Location2.Y=2284.168mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2272.918mil|Location2.Y=2284.168mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-69(130.845mm,58.125mm) on Top Layer And Pad U3-70(130.845mm,57.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5349.69mil|Location2.X=5360.94mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5349.69mil|Location2.X=5360.94mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-7(135.775mm,50.695mm) on Top Layer And Pad U3-8(136.275mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2253.233mil|Location2.Y=2264.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2253.233mil|Location2.Y=2264.483mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-70(130.845mm,57.625mm) on Top Layer And Pad U3-71(130.845mm,57.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2233.548mil|Location2.Y=2244.798mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2233.548mil|Location2.Y=2244.798mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-71(130.845mm,57.125mm) on Top Layer And Pad U3-72(130.845mm,56.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2213.863mil|Location2.Y=2225.113mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2213.863mil|Location2.Y=2225.113mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-72(130.845mm,56.625mm) on Top Layer And Pad U3-73(130.845mm,56.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2194.178mil|Location2.Y=2205.428mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2194.178mil|Location2.Y=2205.428mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-73(130.845mm,56.125mm) on Top Layer And Pad U3-74(130.845mm,55.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2174.493mil|Location2.Y=2185.743mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2174.493mil|Location2.Y=2185.743mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-74(130.845mm,55.625mm) on Top Layer And Pad U3-75(130.845mm,55.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2154.808mil|Location2.Y=2166.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2154.808mil|Location2.Y=2166.058mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-75(130.845mm,55.125mm) on Top Layer And Pad U3-76(130.845mm,54.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2135.123mil|Location2.Y=2146.373mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2135.123mil|Location2.Y=2146.373mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-76(130.845mm,54.625mm) on Top Layer And Pad U3-77(130.845mm,54.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2115.438mil|Location2.Y=2126.688mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2115.438mil|Location2.Y=2126.688mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-77(130.845mm,54.125mm) on Top Layer And Pad U3-78(130.845mm,53.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2095.753mil|Location2.Y=2107.003mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2095.753mil|Location2.Y=2107.003mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-78(130.845mm,53.625mm) on Top Layer And Pad U3-79(130.845mm,53.125mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2076.068mil|Location2.Y=2087.318mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5111.044mil|Location2.X=5122.294mil|Location1.Y=2076.068mil|Location2.Y=2087.318mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-79(130.845mm,53.125mm) on Top Layer And Pad U3-80(130.845mm,52.625mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5369.375mil|Location2.X=5380.625mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5369.375mil|Location2.X=5380.625mil|Location1.Y=1955.533mil|Location2.Y=1966.783mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.017mm &lt; 0.254mm) Between Pad U3-8(136.275mm,50.695mm) on Top Layer And Pad U3-9(136.775mm,50.695mm) on Top Layer [Top Solder] Mask Sliver [0.017mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4589.847mil|Location2.X=4601.097mil|Location1.Y=4034.631mil|Location2.Y=4045.881mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4589.847mil|Location2.X=4601.097mil|Location1.Y=4034.631mil|Location2.Y=4045.881mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.167mm &lt; 0.254mm) Between Pad U4-1(117.2mm,103.155mm) on Top Layer And Pad U4-2(116.25mm,103.155mm) on Top Layer [Top Solder] Mask Sliver [0.167mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4552.446mil|Location2.X=4563.696mil|Location1.Y=4034.631mil|Location2.Y=4045.881mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4552.446mil|Location2.X=4563.696mil|Location1.Y=4034.631mil|Location2.Y=4045.881mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.167mm &lt; 0.254mm) Between Pad U4-2(116.25mm,103.155mm) on Top Layer And Pad U4-3(115.3mm,103.155mm) on Top Layer [Top Solder] Mask Sliver [0.167mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4552.446mil|Location2.X=4563.696mil|Location1.Y=3935.812mil|Location2.Y=3947.062mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4552.446mil|Location2.X=4563.696mil|Location1.Y=3935.812mil|Location2.Y=3947.062mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.167mm &lt; 0.254mm) Between Pad U4-4(115.3mm,100.645mm) on Top Layer And Pad U4-5(116.25mm,100.645mm) on Top Layer [Top Solder] Mask Sliver [0.167mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4589.847mil|Location2.X=4601.097mil|Location1.Y=3935.812mil|Location2.Y=3947.062mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4589.847mil|Location2.X=4601.097mil|Location1.Y=3935.812mil|Location2.Y=3947.062mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.167mm &lt; 0.254mm) Between Pad U4-5(116.25mm,100.645mm) on Top Layer And Pad U4-6(117.2mm,100.645mm) on Top Layer [Top Solder] Mask Sliver [0.167mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3916.619mil|Location2.X=3927.869mil|Location1.Y=4043.489mil|Location2.Y=4054.739mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3916.619mil|Location2.X=3927.869mil|Location1.Y=4043.489mil|Location2.Y=4054.739mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.167mm &lt; 0.254mm) Between Pad U6-1(100.1mm,103.38mm) on Top Layer And Pad U6-2(99.15mm,103.38mm) on Top Layer [Top Solder] Mask Sliver [0.167mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3879.218mil|Location2.X=3890.468mil|Location1.Y=4043.489mil|Location2.Y=4054.739mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3879.218mil|Location2.X=3890.468mil|Location1.Y=4043.489mil|Location2.Y=4054.739mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.167mm &lt; 0.254mm) Between Pad U6-2(99.15mm,103.38mm) on Top Layer And Pad U6-3(98.2mm,103.38mm) on Top Layer [Top Solder] Mask Sliver [0.167mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3879.218mil|Location2.X=3890.468mil|Location1.Y=3944.67mil|Location2.Y=3955.92mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3879.218mil|Location2.X=3890.468mil|Location1.Y=3944.67mil|Location2.Y=3955.92mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.167mm &lt; 0.254mm) Between Pad U6-4(98.2mm,100.87mm) on Top Layer And Pad U6-5(99.15mm,100.87mm) on Top Layer [Top Solder] Mask Sliver [0.167mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3916.619mil|Location2.X=3927.869mil|Location1.Y=3944.67mil|Location2.Y=3955.92mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3916.619mil|Location2.X=3927.869mil|Location1.Y=3944.67mil|Location2.Y=3955.92mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.167mm &lt; 0.254mm) Between Pad U6-5(99.15mm,100.87mm) on Top Layer And Pad U6-6(100.1mm,100.87mm) on Top Layer [Top Solder] Mask Sliver [0.167mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5894.966mil|Location2.X=5906.216mil|Location1.Y=4055.3mil|Location2.Y=4066.55mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5894.966mil|Location2.X=5906.216mil|Location1.Y=4055.3mil|Location2.Y=4066.55mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.167mm &lt; 0.254mm) Between Pad U8-1(150.35mm,103.68mm) on Top Layer And Pad U8-2(149.4mm,103.68mm) on Top Layer [Top Solder] Mask Sliver [0.167mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5857.564mil|Location2.X=5868.814mil|Location1.Y=4055.3mil|Location2.Y=4066.55mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5857.564mil|Location2.X=5868.814mil|Location1.Y=4055.3mil|Location2.Y=4066.55mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.167mm &lt; 0.254mm) Between Pad U8-2(149.4mm,103.68mm) on Top Layer And Pad U8-3(148.45mm,103.68mm) on Top Layer [Top Solder] Mask Sliver [0.167mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5857.564mil|Location2.X=5868.814mil|Location1.Y=3956.481mil|Location2.Y=3967.731mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5857.564mil|Location2.X=5868.814mil|Location1.Y=3956.481mil|Location2.Y=3967.731mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.167mm &lt; 0.254mm) Between Pad U8-4(148.45mm,101.17mm) on Top Layer And Pad U8-5(149.4mm,101.17mm) on Top Layer [Top Solder] Mask Sliver [0.167mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5894.966mil|Location2.X=5906.216mil|Location1.Y=3956.481mil|Location2.Y=3967.731mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5894.966mil|Location2.X=5906.216mil|Location1.Y=3956.481mil|Location2.Y=3967.731mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.167mm &lt; 0.254mm) Between Pad U8-5(149.4mm,101.17mm) on Top Layer And Pad U8-6(150.35mm,101.17mm) on Top Layer [Top Solder] Mask Sliver [0.167mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5253.233mil|Location2.X=5264.483mil|Location1.Y=4033.647mil|Location2.Y=4044.897mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5253.233mil|Location2.X=5264.483mil|Location1.Y=4033.647mil|Location2.Y=4044.897mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.167mm &lt; 0.254mm) Between Pad U9-1(134.05mm,103.13mm) on Top Layer And Pad U9-2(133.1mm,103.13mm) on Top Layer [Top Solder] Mask Sliver [0.167mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5215.832mil|Location2.X=5227.082mil|Location1.Y=4033.647mil|Location2.Y=4044.897mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5215.832mil|Location2.X=5227.082mil|Location1.Y=4033.647mil|Location2.Y=4044.897mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.167mm &lt; 0.254mm) Between Pad U9-2(133.1mm,103.13mm) on Top Layer And Pad U9-3(132.15mm,103.13mm) on Top Layer [Top Solder] Mask Sliver [0.167mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5215.832mil|Location2.X=5227.082mil|Location1.Y=3934.828mil|Location2.Y=3946.078mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5215.832mil|Location2.X=5227.082mil|Location1.Y=3934.828mil|Location2.Y=3946.078mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.167mm &lt; 0.254mm) Between Pad U9-4(132.15mm,100.62mm) on Top Layer And Pad U9-5(133.1mm,100.62mm) on Top Layer [Top Solder] Mask Sliver [0.167mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5253.233mil|Location2.X=5264.483mil|Location1.Y=3934.828mil|Location2.Y=3946.078mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\PCB_Project_HydroPore\PCB_HydroPore.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5253.233mil|Location2.X=5264.483mil|Location1.Y=3934.828mil|Location2.Y=3946.078mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.167mm &lt; 0.254mm) Between Pad U9-5(133.1mm,100.62mm) on Top Layer And Pad U9-6(134.05mm,100.62mm) on Top Layer [Top Solder] Mask Sliver [0.167mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

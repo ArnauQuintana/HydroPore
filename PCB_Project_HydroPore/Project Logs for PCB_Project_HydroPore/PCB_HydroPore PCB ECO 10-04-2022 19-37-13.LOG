@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=GND Pin=C121-1
+Removed Pin From Net: NetName=15Vdc Pin=C121-2
+Removed Pin From Net: NetName=GND Pin=C122-1
+Removed Pin From Net: NetName=15Vdc Pin=C122-2
+Removed Pin From Net: NetName=GND Pin=P21-2
+Removed Member From Class: ClassName=Sensors Member=C121
+Removed Member From Class: ClassName=Sensors Member=C122

@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=NetC81_2 Pin=C84-2
+Removed Pin From Net: NetName=NetC81_2 Pin=C85-2
+Removed Pin From Net: NetName=NetC81_2 Pin=FB4-2
+Removed Pin From Net: NetName=NetC81_2 Pin=U3-1
+Removed Pin From Net: NetName=ADC_ACTUATOR Pin=U3-32
+Added Pin To Net: NetName=ADC_ACTUATOR Pin=U3-3
+Added Pin To Net: NetName=NetC84_2 Pin=C84-2
+Added Pin To Net: NetName=NetC84_2 Pin=C85-2
+Added Pin To Net: NetName=NetC84_2 Pin=FB4-2
+Added Pin To Net: NetName=NetC84_2 Pin=U3-1
+Added Net: Name=NetC84_2

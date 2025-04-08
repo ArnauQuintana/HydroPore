@@ -1,0 +1,18 @@
+Removed Pin From Net: NetName=GND Pin=S1-1
+Removed Pin From Net: NetName=\R\S\T\/SBWTDIO Pin=S1-2
+Change Component Footprint: Designator=S1 Old Footprint=SPST-2 New Footprint=430182070816
+Change Component Comment : Designator=S1 Old Comment=SW-SPST New Comment=430182070816
+Change component parameters: Designator = "S1"; Footprint = "430182070816"; UniqueID = "\AOBUDYVC"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Availability"; Value = "Not in stock"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/430182070816/Wurth+Electronics+Inc./view-part/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "Wurth Electronics"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "430182070816"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/430182070816/Wurth+Electronics+Inc./view-part/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=\R\S\T\/SBWTDIO Pin=S1-1
+Added Pin To Net: NetName=GND Pin=S1-2
+Added Pin To Net: NetName=\R\S\T\/SBWTDIO Pin=S1-3
+Added Pin To Net: NetName=GND Pin=S1-4

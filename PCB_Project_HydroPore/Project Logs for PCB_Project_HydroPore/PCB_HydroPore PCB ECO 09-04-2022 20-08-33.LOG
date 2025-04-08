@@ -1,0 +1,43 @@
+Removed Pin From Net: NetName=5Vdc_CAM Pin=P8-1
+Removed Pin From Net: NetName=GND Pin=P8-2
+Removed Pin From Net: NetName=CAM1_RX Pin=P8-3
+Removed Pin From Net: NetName=CAM1_TX Pin=P8-4
+Removed Pin From Net: NetName=5Vdc_CAM Pin=P9-1
+Removed Pin From Net: NetName=GND Pin=P9-2
+Removed Pin From Net: NetName=CAM2_RX Pin=P9-3
+Removed Pin From Net: NetName=CAM2_TX Pin=P9-4
+Removed Pin From Net: NetName=5Vdc_CAM Pin=P10-1
+Removed Pin From Net: NetName=GND Pin=P10-2
+Removed Pin From Net: NetName=CAM3_RX Pin=P10-3
+Removed Pin From Net: NetName=CAM3_TX Pin=P10-4
+Removed Pin From Net: NetName=5Vdc_CAM Pin=P11-1
+Removed Pin From Net: NetName=GND Pin=P11-2
+Removed Pin From Net: NetName=CAM4_RX Pin=P11-3
+Removed Pin From Net: NetName=CAM4_TX Pin=P11-4
+Removed Member From Class: ClassName=MCU Member=P8
+Removed Member From Class: ClassName=MCU Member=P9
+Removed Member From Class: ClassName=MCU Member=P10
+Removed Member From Class: ClassName=MCU Member=P11
+Added Member To Class: ClassName=Sensors Member=Component C115 Cap
+Added Member To Class: ClassName=Sensors Member=Component C116 Cap
+Added Member To Class: ClassName=Sensors Member=Component C118 Cap
+Added Member To Class: ClassName=Sensors Member=Component C119 Cap
+Added Member To Class: ClassName=Sensors Member=Component C120 Cap
+Added Member To Class: ClassName=Sensors Member=Component C123 Cap
+Added Member To Class: ClassName=Sensors Member=Component C124 Cap
+Added Member To Class: ClassName=Sensors Member=Component C125 Cap
+Added Member To Class: ClassName=Sensors Member=Component C127 Cap
+Added Member To Class: ClassName=Sensors Member=Component C128 Cap
+Added Member To Class: ClassName=Sensors Member=Component IC3 MCP62
+Added Member To Class: ClassName=Sensors Member=Component IC4 MCP62
+Added Member To Class: ClassName=Sensors Member=Component IC6 MCP62
+Added Member To Class: ClassName=Sensors Member=Component P20 Header 3
+Added Member To Class: ClassName=Sensors Member=Component R72 Res2
+Added Member To Class: ClassName=Sensors Member=Component R73 Res2
+Added Member To Class: ClassName=Sensors Member=Component R74 Res2
+Added Member To Class: ClassName=Sensors Member=Component R75 Res2
+Added Member To Class: ClassName=Sensors Member=Component R76 Res2
+Added Member To Class: ClassName=Sensors Member=Component R77 Res2
+Added Member To Class: ClassName=Sensors Member=Component R80 Res2
+Added Member To Class: ClassName=Sensors Member=Component R81 No montar
+Added Member To Class: ClassName=Sensors Member=Component R82 No montar

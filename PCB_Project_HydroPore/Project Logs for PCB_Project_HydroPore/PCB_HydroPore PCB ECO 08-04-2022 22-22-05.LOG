@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=GND* Pin=C35-N
+Added Room: Name=MCU
+Added Room: Name=Power
+Added Room: Name=Sensors

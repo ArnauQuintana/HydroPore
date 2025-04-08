@@ -1,0 +1,6 @@
+Added Pin To Net: NetName=TEST/SBWTCK Pin=U3-15
+Added Pin To Net: NetName=\R\S\T\/SBWTDIO Pin=U3-16
+Added Pin To Net: NetName=TDO Pin=U3-17
+Added Pin To Net: NetName=TDI Pin=U3-18
+Added Pin To Net: NetName=TMS Pin=U3-19
+Added Pin To Net: NetName=TCK Pin=U3-20

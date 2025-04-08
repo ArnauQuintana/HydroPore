@@ -1,0 +1,80 @@
+Added Component: Designator=U1(SOIC8_W)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/PEME2-S15-D5-S/CUI/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "CUI"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "PEME2-S15-D5-S"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/PEME2-S15-D5-S/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/PEME2-S15-D5-S/CUI/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=U2(soic8_w)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/PEME2-S15-D5-S/CUI/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "CUI"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "PEME2-S15-D5-S"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/PEME2-S15-D5-S/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/PEME2-S15-D5-S/CUI/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=U15(soic8_w)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/PEME2-S15-D5-S/CUI/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "CUI"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "PEME2-S15-D5-S"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/PEME2-S15-D5-S/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/PEME2-S15-D5-S/CUI/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=U20(soic8_w)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/PEME2-S15-D5-S/CUI/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "CUI"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "PEME2-S15-D5-S"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/PEME2-S15-D5-S/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/PEME2-S15-D5-S/CUI/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=5Vdc Pin=U1-1
+Added Pin To Net: NetName=NetC3_1 Pin=U1-2
+Added Pin To Net: NetName=GND Pin=U1-3
+Added Pin To Net: NetName=GND Pin=U1-4
+Added Pin To Net: NetName=12Vdc Pin=U1-5
+Added Pin To Net: NetName=NetR26_1 Pin=U1-6
+Added Pin To Net: NetName=NetD6_1 Pin=U1-7
+Added Pin To Net: NetName=GND* Pin=U1-8
+Added Pin To Net: NetName=5Vdc Pin=U2-1
+Added Pin To Net: NetName=NetC4_1 Pin=U2-2
+Added Pin To Net: NetName=GND Pin=U2-3
+Added Pin To Net: NetName=GND Pin=U2-4
+Added Pin To Net: NetName=12Vdc Pin=U2-5
+Added Pin To Net: NetName=NetR22_1 Pin=U2-6
+Added Pin To Net: NetName=NetD5_1 Pin=U2-7
+Added Pin To Net: NetName=GND* Pin=U2-8
+Added Pin To Net: NetName=5Vdc Pin=U15-1
+Added Pin To Net: NetName=NetC13_1 Pin=U15-2
+Added Pin To Net: NetName=GND Pin=U15-3
+Added Pin To Net: NetName=GND Pin=U15-4
+Added Pin To Net: NetName=12Vdc Pin=U15-5
+Added Pin To Net: NetName=NetR30_1 Pin=U15-6
+Added Pin To Net: NetName=NetD7_1 Pin=U15-7
+Added Pin To Net: NetName=GND* Pin=U15-8
+Added Pin To Net: NetName=5Vdc Pin=U20-1
+Added Pin To Net: NetName=NetC94_1 Pin=U20-2
+Added Pin To Net: NetName=GND Pin=U20-3
+Added Pin To Net: NetName=GND Pin=U20-4
+Added Pin To Net: NetName=12Vdc Pin=U20-5
+Added Pin To Net: NetName=NetR33_1 Pin=U20-6
+Added Pin To Net: NetName=NetD8_1 Pin=U20-7
+Added Pin To Net: NetName=GND* Pin=U20-8
+Added Member To Class: ClassName=MCU Member=Component U1 NCD57090ADWR2G
+Added Member To Class: ClassName=MCU Member=Component U2 NCD57090ADWR2G
+Added Member To Class: ClassName=MCU Member=Component U15 NCD57090ADWR2G
+Added Member To Class: ClassName=MCU Member=Component U20 NCD57090ADWR2G

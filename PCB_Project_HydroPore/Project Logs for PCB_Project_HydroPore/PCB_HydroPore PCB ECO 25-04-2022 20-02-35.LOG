@@ -1,0 +1,6 @@
+Added Pin To Net: NetName=Vcc_HDriverA Pin=C2-1
+Added Pin To Net: NetName=Vcc_HDriverA Pin=C7-1
+Added Pin To Net: NetName=Vcc_HDriverC Pin=C11-1
+Added Pin To Net: NetName=Vcc_HDriverC Pin=C73-1
+Added Pin To Net: NetName=Vcc_HDriverA Pin=U1-5
+Added Pin To Net: NetName=Vcc_HDriverC Pin=U15-5

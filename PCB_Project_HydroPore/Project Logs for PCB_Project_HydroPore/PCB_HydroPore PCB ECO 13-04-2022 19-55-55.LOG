@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=Actuator+ Pin=Q1-2
+Removed Pin From Net: NetName=12Vdc Pin=Q1-3
+Removed Pin From Net: NetName=Actuator- Pin=Q2-2
+Removed Pin From Net: NetName=12Vdc Pin=Q2-3
+Removed Pin From Net: NetName=NetQ3_2 Pin=Q3-2
+Removed Pin From Net: NetName=Actuator+ Pin=Q3-3
+Removed Pin From Net: NetName=NetQ3_2 Pin=Q4-2
+Removed Pin From Net: NetName=Actuator- Pin=Q4-3
+Change Component Comment : Designator=Q1 Old Comment=IRLML0030TRPBF New Comment=IRFR1205TRPBF
+Change Component Comment : Designator=Q2 Old Comment=IRLML0030TRPBF New Comment=IRFR1205TRPBF
+Change Component Comment : Designator=Q3 Old Comment=IRLML0030TRPBF New Comment=IRFR1205TRPBF
+Change Component Comment : Designator=Q4 Old Comment=IRLML0030TRPBF New Comment=IRFR1205TRPBF
+Added Pin To Net: NetName=12Vdc Pin=Q1-2
+Added Pin To Net: NetName=Actuator+ Pin=Q1-3
+Added Pin To Net: NetName=12Vdc Pin=Q2-2
+Added Pin To Net: NetName=Actuator- Pin=Q2-3
+Added Pin To Net: NetName=Actuator+ Pin=Q3-2
+Added Pin To Net: NetName=NetQ3_2 Pin=Q3-3
+Added Pin To Net: NetName=Actuator- Pin=Q4-2
+Added Pin To Net: NetName=NetQ3_2 Pin=Q4-3
+Change Net Name : Old Net Name=NetQ3_2 New Net Name=NetQ3_3

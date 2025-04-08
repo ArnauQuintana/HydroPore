@@ -1,0 +1,2 @@
+Removed Pin From Net: NetName=ADC_ACTUATOR Pin=U3-3
+Added Pin To Net: NetName=ADC_ACTUATOR Pin=U3-2

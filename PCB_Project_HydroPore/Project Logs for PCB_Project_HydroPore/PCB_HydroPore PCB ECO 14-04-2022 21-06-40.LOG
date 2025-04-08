@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=GPIO_B Pin=U3-55
+Removed Pin From Net: NetName=PWM_A Pin=U3-56
+Added Pin To Net: NetName=PWM_A Pin=U3-55
+Added Pin To Net: NetName=GPIO_B Pin=U3-56

@@ -1,0 +1,14 @@
+Added Pin To Net: NetName=5Vdc Pin=C117-1
+Added Pin To Net: NetName=NetC114_1 Pin=IC5-1
+Added Pin To Net: NetName=5Vdc Pin=IC5-2
+Added Pin To Net: NetName=GND Pin=IC5-5
+Added Pin To Net: NetName=GND Pin=R87-2
+Added Pin To Net: NetName=NetC114_2 Pin=C114-2
+Added Pin To Net: NetName=NetC114_2 Pin=IC5-4
+Added Pin To Net: NetName=NetC114_2 Pin=R70-1
+Added Pin To Net: NetName=NetC114_2 Pin=R71-2
+Added Net: Name=NetC114_2
+Added Pin To Net: NetName=NetIC5_3 Pin=IC5-3
+Added Pin To Net: NetName=NetIC5_3 Pin=R86-1
+Added Pin To Net: NetName=NetIC5_3 Pin=R87-1
+Added Net: Name=NetIC5_3

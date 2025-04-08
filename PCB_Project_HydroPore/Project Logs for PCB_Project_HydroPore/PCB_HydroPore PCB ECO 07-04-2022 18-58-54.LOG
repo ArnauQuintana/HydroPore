@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=12Vdc Pin=C38-P
+Removed Pin From Net: NetName=GND* Pin=C39-N
+Removed Pin From Net: NetName=12Vdc Pin=C39-P
+Removed Pin From Net: NetName=GND Pin=C44-N
+Removed Pin From Net: NetName=15Vdc Pin=C44-P
+Removed Pin From Net: NetName=GND Pin=C45-N
+Removed Pin From Net: NetName=15Vdc Pin=C45-P
+Removed Member From Class: ClassName=Power Member=C40
+Removed Member From Class: ClassName=Power Member=C43
+Removed Member From Class: ClassName=Power Member=C44
+Removed Member From Class: ClassName=Power Member=C45
+Change Component Designator: OldDesignator=C40 NewDesignator=C38
+Change Component Designator: OldDesignator=C41 NewDesignator=C39
+Change Component Designator: OldDesignator=C42 NewDesignator=C4
+Change Component Designator: OldDesignator=C43 NewDesignator=C41

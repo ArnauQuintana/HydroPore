@@ -1,0 +1,64 @@
+Removed Pin From Net: NetName=Actuator+ Pin=C2-2
+Removed Pin From Net: NetName=Actuator+ Pin=C7-2
+Removed Pin From Net: NetName=Actuator- Pin=C11-2
+Removed Pin From Net: NetName=Actuator- Pin=C73-2
+Removed Pin From Net: NetName=5Vdc Pin=U1-1
+Removed Pin From Net: NetName=NetC3_1 Pin=U1-2
+Removed Pin From Net: NetName=GND Pin=U1-3
+Removed Pin From Net: NetName=GND Pin=U1-4
+Removed Pin From Net: NetName=Vcc_HDriver Pin=U1-5
+Removed Pin From Net: NetName=NetR26_1 Pin=U1-6
+Removed Pin From Net: NetName=NetD6_1 Pin=U1-7
+Removed Pin From Net: NetName=Actuator+ Pin=U1-8
+Removed Pin From Net: NetName=5Vdc Pin=U15-1
+Removed Pin From Net: NetName=NetC13_1 Pin=U15-2
+Removed Pin From Net: NetName=GND Pin=U15-3
+Removed Pin From Net: NetName=GND Pin=U15-4
+Removed Pin From Net: NetName=Vcc_HDriver Pin=U15-5
+Removed Pin From Net: NetName=NetR30_1 Pin=U15-6
+Removed Pin From Net: NetName=NetD7_1 Pin=U15-7
+Removed Pin From Net: NetName=Actuator- Pin=U15-8
+Added Component: Designator=U1(SOIC8_W)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/PEME2-S15-D5-S/CUI/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "CUI"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "PEME2-S15-D5-S"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/PEME2-S15-D5-S/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/PEME2-S15-D5-S/CUI/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=U15(SOIC8_W)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/PEME2-S15-D5-S/CUI/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "CUI"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "PEME2-S15-D5-S"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/PEME2-S15-D5-S/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/PEME2-S15-D5-S/CUI/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND* Pin=C2-2
+Added Pin To Net: NetName=GND* Pin=C7-2
+Added Pin To Net: NetName=GND* Pin=C11-2
+Added Pin To Net: NetName=GND* Pin=C73-2
+Added Pin To Net: NetName=5Vdc Pin=U1-1
+Added Pin To Net: NetName=NetC3_1 Pin=U1-2
+Added Pin To Net: NetName=GND Pin=U1-3
+Added Pin To Net: NetName=GND Pin=U1-4
+Added Pin To Net: NetName=Vcc_HDriver Pin=U1-5
+Added Pin To Net: NetName=NetR26_1 Pin=U1-6
+Added Pin To Net: NetName=GND* Pin=U1-7
+Added Pin To Net: NetName=Actuator+ Pin=U1-8
+Added Pin To Net: NetName=5Vdc Pin=U15-1
+Added Pin To Net: NetName=NetC13_1 Pin=U15-2
+Added Pin To Net: NetName=GND Pin=U15-3
+Added Pin To Net: NetName=GND Pin=U15-4
+Added Pin To Net: NetName=Vcc_HDriver Pin=U15-5
+Added Pin To Net: NetName=NetR30_1 Pin=U15-6
+Added Pin To Net: NetName=GND* Pin=U15-7
+Added Pin To Net: NetName=Actuator- Pin=U15-8
+Added Member To Class: ClassName=MCU Member=Component U1 NCD57090BDWR2G
+Added Member To Class: ClassName=MCU Member=Component U15 NCD57090BDWR2G

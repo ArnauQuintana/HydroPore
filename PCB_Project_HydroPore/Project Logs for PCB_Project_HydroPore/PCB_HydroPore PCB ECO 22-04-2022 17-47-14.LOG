@@ -1,0 +1,7 @@
+Added Pin To Net: NetName=NetR66_1 Pin=U3-39
+Change Net Name : Old Net Name=NetR66_1 New Net Name=CS_LOADCELL2
+Change Net Name : Old Net Name=NetU3_30 New Net Name=CLK_LOADCELL
+Change Net Name : Old Net Name=NetU3_35 New Net Name=MISO_LOADCELL
+Added Pin To Net: NetName=CS_LOADCELL1 Pin=R58-1
+Added Pin To Net: NetName=CS_LOADCELL1 Pin=U19-9
+Added Net: Name=CS_LOADCELL1

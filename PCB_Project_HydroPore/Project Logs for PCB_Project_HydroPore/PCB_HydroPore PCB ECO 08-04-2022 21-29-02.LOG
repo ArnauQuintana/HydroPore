@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=GND Pin=FB5-1
+Removed Member From Class: ClassName=Power Member=FB5
+Added Pin To Net: NetName=GND Pin=C74-1
+Added Pin To Net: NetName=GND Pin=C75-1
+Added Room: Name=MCU
+Added Room: Name=Power
+Added Room: Name=Sensors

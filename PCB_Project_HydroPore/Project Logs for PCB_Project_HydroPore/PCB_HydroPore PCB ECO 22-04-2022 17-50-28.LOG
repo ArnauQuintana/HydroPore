@@ -1,0 +1,7 @@
+Change Net Name : Old Net Name=NetC98_2 New Net Name=ADC_LVDT1
+Change Net Name : Old Net Name=NetC111_2 New Net Name=ADC_LVDT2
+Change Net Name : Old Net Name=NetC126_2 New Net Name=ADC_WATERSENSE
+Change Net Name : Old Net Name=NetP13_2 New Net Name=ADC_ACTUATOR
+Change Net Name : Old Net Name=NetP19_2 New Net Name=TRIGGER_US
+Change Net Name : Old Net Name=NetP19_3 New Net Name=ECHO_US
+Change Net Name : Old Net Name=NetR39_1 New Net Name=OV

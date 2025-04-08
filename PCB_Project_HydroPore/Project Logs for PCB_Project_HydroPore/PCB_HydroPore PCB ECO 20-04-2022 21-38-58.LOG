@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=PWM_A Pin=U3-76
+Added Pin To Net: NetName=PWM_C Pin=U3-62
+Added Pin To Net: NetName=PWM_A Pin=U3-63
+Added Pin To Net: NetName=I2C_SDA Pin=U3-75
+Added Pin To Net: NetName=I2C_SCL Pin=U3-76
+Added Pin To Net: NetName=LED_CAM1 Pin=R88-1
+Added Pin To Net: NetName=LED_CAM1 Pin=U3-53
+Added Net: Name=LED_CAM1
+Added Pin To Net: NetName=LED_CAM2 Pin=R89-1
+Added Pin To Net: NetName=LED_CAM2 Pin=U3-52
+Added Net: Name=LED_CAM2
+Added Pin To Net: NetName=LED_CAM3 Pin=R90-1
+Added Pin To Net: NetName=LED_CAM3 Pin=U3-51
+Added Net: Name=LED_CAM3
+Added Pin To Net: NetName=LED_CAM4 Pin=R91-1
+Added Pin To Net: NetName=LED_CAM4 Pin=U3-50
+Added Net: Name=LED_CAM4
+Added Member To Class: ClassName=MCU Member=Component R11 Res2
+Added Member To Class: ClassName=MCU Member=Component R13 Res2
+Added Member To Class: ClassName=MCU Member=Component R16 Res2
+Added Member To Class: ClassName=MCU Member=Component R17 Res2

@@ -1,0 +1,8 @@
+Added Pin To Net: NetName=NetU3_47 Pin=U3-47
+Added Pin To Net: NetName=NetU3_47 Pin=U18-10
+Added Pin To Net: NetName=NetU3_47 Pin=U19-10
+Added Net: Name=NetU3_47
+Added Pin To Net: NetName=NetU3_49 Pin=U3-49
+Added Pin To Net: NetName=NetU3_49 Pin=U18-1
+Added Pin To Net: NetName=NetU3_49 Pin=U19-1
+Added Net: Name=NetU3_49

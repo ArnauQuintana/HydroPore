@@ -1,0 +1,12 @@
+Added Component: Designator=Y2(XTAL_ABM7-16.000MHZ-D2Y-T)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "EPSON"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "FC-12M"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "SMD-2 EPSON"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/FC-12M/EPSON/view-part/105663/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC45_2 Pin=Y2-1
+Added Pin To Net: NetName=NetC44_2 Pin=Y2-2
+Added Member To Class: ClassName=MCU Member=Component Y2 CRYSTAL

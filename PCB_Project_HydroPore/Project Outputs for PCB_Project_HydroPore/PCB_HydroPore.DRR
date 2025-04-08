@@ -1,0 +1,26 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: PCB_HydroPore.PcbDoc   27/04/2022  19:02:19
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : PCB_HydroPore.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      16mil (0.399mm)                                           Round             23        PTH        0.00inch (0.00mm)
+T2      20mil (0.5mm)                                             Round             166       PTH        0.00inch (0.00mm)
+T3      24mil (0.599mm)                                           Round             2         PTH        0.00inch (0.00mm)
+T4      30mil (0.749mm)                                           Round             16        PTH        0.00inch (0.00mm)
+T5      30mil (0.759mm)                                           Round             24        PTH        0.00inch (0.00mm)
+T6      34mil (0.851mm)                                           Round             12        PTH        0.00inch (0.00mm)
+T7      35mil (0.899mm)                                           Round             23        PTH        0.00inch (0.00mm)
+T8      39mil (1.001mm)                                           Round             10        PTH        0.00inch (0.00mm)
+T9      51mil (1.3mm)                                             Round             8         PTH        0.00inch (0.00mm)
+T10     53mil (1.359mm)                                           Round             42        PTH        0.00inch (0.00mm)
+T11     91mil (2.301mm)                                           Round             5         PTH        0.00inch (0.00mm)
+T12     126mil (3.2mm)                                            Round             5         PTH        0.00inch (0.00mm)
+T13     128mil (3.251mm)                                          Round             8         NPTH       0.00inch (0.00mm)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              344
+
+Total Processing Time (hh:mm:ss) : 00:00:00

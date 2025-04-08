@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=Vcc_HDriverA Pin=C41-2
+Removed Pin From Net: NetName=Vcc_HDriverC Pin=C106-2
+Removed Pin From Net: NetName=Vcc_HDriverA Pin=R1-2
+Removed Pin From Net: NetName=Vcc_HDriverC Pin=R77-2
+Removed Pin From Net: NetName=Vcc_HDriverA Pin=U10-6
+Removed Pin From Net: NetName=Vcc_HDriverC Pin=U21-6
+Added Pin To Net: NetName=Vcc_HDriverC Pin=C41-2
+Added Pin To Net: NetName=Vcc_HDriverA Pin=C106-2
+Added Pin To Net: NetName=Vcc_HDriverC Pin=R1-2
+Added Pin To Net: NetName=Vcc_HDriverA Pin=R77-2
+Added Pin To Net: NetName=Vcc_HDriverC Pin=U10-6
+Added Pin To Net: NetName=Vcc_HDriverA Pin=U21-6

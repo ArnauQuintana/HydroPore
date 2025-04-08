@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=PWM_A Pin=R2-2
+Added Pin To Net: NetName=GPIO_B Pin=R3-2
+Added Pin To Net: NetName=PWM_C Pin=R14-2
+Added Pin To Net: NetName=GPIO_D Pin=R15-2

@@ -1,0 +1,7 @@
+Added Pin To Net: NetName=NetP19_3 Pin=U3-36
+Added Pin To Net: NetName=BridgeSense_MCU Pin=U3-51
+Added Pin To Net: NetName=GPIO_DriverB Pin=U3-52
+Added Pin To Net: NetName=PWM_DriverB Pin=U3-53
+Added Pin To Net: NetName=BridgeSense_MCU Pin=U3-54
+Added Pin To Net: NetName=GPIO_DriverA Pin=U3-55
+Added Pin To Net: NetName=PWM_DriverA Pin=U3-56

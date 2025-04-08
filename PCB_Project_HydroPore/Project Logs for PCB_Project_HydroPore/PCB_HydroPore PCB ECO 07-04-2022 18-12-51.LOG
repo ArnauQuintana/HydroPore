@@ -1,0 +1,36 @@
+Change Component Comment : Designator=C61 Old Comment=10uF New Comment=Cap Pol2
+Change component parameters: Designator = "C61"; Footprint = "ElectrolythicCap_5mm"; UniqueID = "\BWITWDQX"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "Polarized Capacitor; 2 Leads"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "POLAR0.8"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "10uF"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C72"; Footprint = "ElectrolythicCap_5mm"; UniqueID = "\XUCFGXLL"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "Polarized Capacitor; 2 Leads"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageReference"; Value = "POLAR0.8"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Published"; Value = "8-Jun-2000"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "1uF"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C61-N
+Added Pin To Net: NetName=5Vdc_CAM Pin=C61-P
+Added Pin To Net: NetName=GND Pin=C67-N
+Added Pin To Net: NetName=15Vdc Pin=C67-P
+Added Pin To Net: NetName=GND Pin=C68-N
+Added Pin To Net: NetName=R5Vdc Pin=C68-P
+Added Pin To Net: NetName=GND Pin=C72-N
+Added Pin To Net: NetName=NetC72_1 Pin=C72-P
+Added Pin To Net: NetName=-5Vdc Pin=C79-N
+Added Pin To Net: NetName=GND Pin=C79-P
+Change Net Name : Old Net Name=NetC72_1 New Net Name=NetC72_P
+Added Pin To Net: NetName=NetC78_N Pin=C78-N
+Added Pin To Net: NetName=NetC78_N Pin=U15-4
+Added Net: Name=NetC78_N
+Added Pin To Net: NetName=NetC78_P Pin=C78-P
+Added Pin To Net: NetName=NetC78_P Pin=U15-2
+Added Net: Name=NetC78_P

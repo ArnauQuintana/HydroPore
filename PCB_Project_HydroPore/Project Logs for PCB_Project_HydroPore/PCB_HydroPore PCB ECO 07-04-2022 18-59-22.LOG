@@ -1,0 +1,6 @@
+Removed Member From Class: ClassName=Power Member=C4
+Change Component Designator: OldDesignator=C4 NewDesignator=C40
+Added Member To Class: ClassName=Power Member=Component C38 Cap Pol2
+Added Member To Class: ClassName=Power Member=Component C39 Cap Pol2
+Added Member To Class: ClassName=Power Member=Component C40 Cap Pol2
+Added Member To Class: ClassName=Power Member=Component C41 Cap Pol2

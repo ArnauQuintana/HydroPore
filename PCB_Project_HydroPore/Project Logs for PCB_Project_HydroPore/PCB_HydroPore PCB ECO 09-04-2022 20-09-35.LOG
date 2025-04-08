@@ -1,0 +1,55 @@
+Added Component: Designator=CON1(D-09F)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Assmann WSW"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "DB9F"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/DB9F/Assmann%20WSW%20Components/view-part/558712/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=CON2(D-09F)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Assmann WSW"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "DB9F"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/DB9F/Assmann%20WSW%20Components/view-part/558712/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=CON3(D-09F)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Assmann WSW"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "DB9F"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/DB9F/Assmann%20WSW%20Components/view-part/558712/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=CON4(D-09F)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Assmann WSW"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "DB9F"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/DB9F/Assmann%20WSW%20Components/view-part/558712/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=CAM1_RX Pin=CON1-2
+Added Pin To Net: NetName=CAM1_TX Pin=CON1-3
+Added Pin To Net: NetName=GND Pin=CON1-5
+Added Pin To Net: NetName=5Vdc_CAM Pin=CON1-9
+Added Pin To Net: NetName=CAM2_RX Pin=CON2-2
+Added Pin To Net: NetName=CAM2_TX Pin=CON2-3
+Added Pin To Net: NetName=5Vdc_CAM Pin=CON2-9
+Added Pin To Net: NetName=CAM3_RX Pin=CON3-2
+Added Pin To Net: NetName=CAM3_TX Pin=CON3-3
+Added Pin To Net: NetName=GND Pin=CON3-5
+Added Pin To Net: NetName=5Vdc_CAM Pin=CON3-9
+Added Pin To Net: NetName=CAM4_RX Pin=CON4-2
+Added Pin To Net: NetName=CAM4_TX Pin=CON4-3
+Added Pin To Net: NetName=GND Pin=CON4-5
+Added Pin To Net: NetName=5Vdc_CAM Pin=CON4-9
+Added Member To Class: ClassName=MCU Member=Component CON1 DB9F
+Added Member To Class: ClassName=MCU Member=Component CON2 DB9F
+Added Member To Class: ClassName=MCU Member=Component CON3 DB9F
+Added Member To Class: ClassName=MCU Member=Component CON4 DB9F

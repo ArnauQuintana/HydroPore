@@ -1,0 +1,6 @@
+Removed Member From Class: ClassName=MCU Member=J1
+Change Component Designator: OldDesignator=J1 NewDesignator=J3
+Change Component Designator: OldDesignator=J3 NewDesignator=J4
+Change Component Designator: OldDesignator=J4 NewDesignator=J5
+Change Component Designator: OldDesignator=J5 NewDesignator=J6
+Added Member To Class: ClassName=MCU Member=Component J6 RJ11-6N-B

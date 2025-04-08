@@ -1,0 +1,18 @@
+Change Component Footprint: Designator=C53 Old Footprint=1206 New Footprint=0603 - duplicate
+Change Component Footprint: Designator=C54 Old Footprint=1206 New Footprint=0603 - duplicate
+Change Component Footprint: Designator=C55 Old Footprint=1206 New Footprint=0603 - duplicate
+Change Component Footprint: Designator=C24 Old Footprint=ElectrolythicCap_5mm New Footprint=ElectrolythicCap_2mm
+Change Component Footprint: Designator=C25 Old Footprint=ElectrolythicCap_5mm New Footprint=ElectrolythicCap_2mm
+Change Component Footprint: Designator=C31 Old Footprint=ElectrolythicCap_5mm New Footprint=ElectrolythicCap_2mm
+Change Component Footprint: Designator=C32 Old Footprint=ElectrolythicCap_5mm New Footprint=ElectrolythicCap_2mm
+Change Component Footprint: Designator=C61 Old Footprint=ElectrolythicCap_5mm New Footprint=ElectrolythicCap_2mm
+Change Component Footprint: Designator=C67 Old Footprint=ElectrolythicCap_5mm New Footprint=ElectrolythicCap_2mm
+Change Component Footprint: Designator=C68 Old Footprint=ElectrolythicCap_5mm New Footprint=ElectrolythicCap_2mm
+Change Component Footprint: Designator=C72 Old Footprint=ElectrolythicCap_5mm New Footprint=ElectrolythicCap_2mm
+Change Component Footprint: Designator=C78 Old Footprint=ElectrolythicCap_5mm New Footprint=ElectrolythicCap_2mm
+Change Component Footprint: Designator=C79 Old Footprint=ElectrolythicCap_5mm New Footprint=ElectrolythicCap_2mm
+Added Member To Class: ClassName=MCU Member=Component C4 Cap
+Added Member To Class: ClassName=Power Member=Component C38 Cap Pol2
+Added Member To Class: ClassName=Power Member=Component C39 Cap Pol2
+Added Member To Class: ClassName=Power Member=Component C40 Cap Pol2
+Added Member To Class: ClassName=Power Member=Component C41 Cap Pol2

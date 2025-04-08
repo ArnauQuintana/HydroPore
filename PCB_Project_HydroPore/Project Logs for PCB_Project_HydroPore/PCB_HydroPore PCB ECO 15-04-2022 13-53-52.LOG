@@ -1,0 +1,2 @@
+Added Pin To Net: NetName=NetC95_2 Pin=P15-4
+Change Net Name : Old Net Name=NetC95_2 New Net Name=CELL1_SENSE+

@@ -1,0 +1,10 @@
+Added Pin To Net: NetName=NetP13_2 Pin=U3-2
+Added Pin To Net: NetName=NetC126_2 Pin=U3-25
+Added Pin To Net: NetName=NetC111_2 Pin=U3-26
+Added Pin To Net: NetName=UART_TX_COM Pin=U3-27
+Added Pin To Net: NetName=UART_RX_COM Pin=U3-28
+Added Pin To Net: NetName=NetC98_2 Pin=U3-31
+Added Pin To Net: NetName=UART1_TX Pin=U3-37
+Added Pin To Net: NetName=UART1_RX Pin=U3-38
+Added Pin To Net: NetName=UART2_TX Pin=U3-43
+Added Pin To Net: NetName=UART2_RX Pin=U3-44

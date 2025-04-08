@@ -1,0 +1,7 @@
+Added Pin To Net: NetName=R5Vdc Pin=C76-2
+Added Pin To Net: NetName=R5Vdc Pin=C77-2
+Added Pin To Net: NetName=R5Vdc Pin=FB3-1
+Added Pin To Net: NetName=R5Vdc Pin=R51-2
+Added Room: Name=MCU
+Added Room: Name=Power
+Added Room: Name=Sensors

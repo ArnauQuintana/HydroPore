@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=GPIO_D Pin=U3-53
+Removed Pin From Net: NetName=GPIO_B Pin=U3-54
+Removed Pin From Net: NetName=PWM_A Pin=U3-55
+Added Pin To Net: NetName=GPIO_D Pin=U3-51
+Added Pin To Net: NetName=GPIO_B Pin=U3-52
+Added Pin To Net: NetName=PWM_A Pin=U3-54
+Added Room: Name=MCU
+Added Room: Name=Power
+Added Room: Name=Sensors
