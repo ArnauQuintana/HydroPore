@@ -61,15 +61,6 @@ Brief summary of what this project does. For example: *MATLAB/Simulink simulatio
 
 ![image](https://github.com/user-attachments/assets/99faa0fd-3b0a-4028-aaa7-1a3ef6e5c4a5)
 
-
----
-
-## 🧑‍💻 Author
-
--Arnau Quintana  
--Email: arnauqll@gmail.com  
--LinkedIn: https://www.linkedin.com/in/arnau-quintana-llorens/  
-
 ---
 
 ## 📄 License
