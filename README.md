@@ -66,9 +66,9 @@ Brief summary of what this project does. For example: *MATLAB/Simulink simulatio
 
 ## 🧑‍💻 Author
 
--Arnau Quintana
--Email: arnauqll@gmail.com
--LinkedIn: https://www.linkedin.com/in/arnau-quintana-llorens/
+-Arnau Quintana  
+-Email: arnauqll@gmail.com  
+-LinkedIn: https://www.linkedin.com/in/arnau-quintana-llorens/  
 
 ---
 
