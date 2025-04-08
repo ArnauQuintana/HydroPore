@@ -11,11 +11,6 @@ A brief summary of what this project does. For example: *Implementation of a DC-
 - Key feature 2
 - Key feature 3
 
-**How to Use:**
-1. Prerequisites
-2. Build or usage instructions
-3. How to run/test
-
 **Location:** `/Project1/`
 
 ---
@@ -28,14 +23,6 @@ This project was intended to control 1 serial camera with Arduino. Its objective
 **Key Features:**
 - Key feature 1
 - Key feature 2
-- Cameras look like:
-![image](https://github.com/user-attachments/assets/3bca824b-3599-4052-8132-8f55bfd73695)
-
-
-**How to Use:**
-1. Open the `.slx` file
-2. Run the simulation
-3. View results
 
 **Location:** `/Project2/`
 
@@ -49,17 +36,6 @@ Simple Python GUI using 'tkinter' for sending commands and receiving data from s
 **Key Features:**
 - Serial communication with UART
 - It generates a 'RESULTS.txt' file with data from sensors.
-
-Main Menu:
-![image](https://github.com/user-attachments/assets/79c88631-d809-417d-bcc2-adfd972017bc)
-
-Commands available:
-![image](https://github.com/user-attachments/assets/e81c5863-61f0-4938-8de0-bc156521d6d7)
-
-
-**How to Use:**
-1. Run: `python HydroPore.py` or execute the 'HydroPore.exe'
-2. Connect to hardware and send and receive data
 
 **Location:** `/Project3/`
 
