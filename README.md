@@ -56,7 +56,7 @@ Brief summary of what this project does. For example: *MATLAB/Simulink simulatio
 ---
 ## 📌 Additional Notes
 
-- It is important to consider that this was my first 'big' project. It was entirely realized in 6 months, the unexperience and short deadline made me do some parts not as optimal as possible or containaining bugs and innacuraccies. 
+- It is important to consider that this was my first 'big' project. It was entirely realized in 6 months, the unexperience and short deadline made me do some parts not as optimal as possible or containing bugs and innacuraccies. 
 - Each project includes its own detailed `README.md` file inside its folder.
 
 ![image](https://github.com/user-attachments/assets/99faa0fd-3b0a-4028-aaa7-1a3ef6e5c4a5)
