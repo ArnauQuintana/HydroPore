@@ -1,5 +1,14 @@
 # HydroPore
 This project was realized in 2022 as my BSc thesis. 
+The objective was to design and implement an embedded system for the control of a setup which looked like the following image:  
+
+![image](https://github.com/user-attachments/assets/7f72113d-a750-4aa0-9126-0ac1bf6549a1)
+
+Here is a photo of the final solution:  
+
+![image](https://github.com/user-attachments/assets/99faa0fd-3b0a-4028-aaa7-1a3ef6e5c4a5)
+
+The project has 4 parts: the firmware in C in a MSP430 TI microcontroller, . 
 
 ## 📁 Project 1 - [HydroPore_FW]
 
@@ -59,7 +68,7 @@ Brief summary of what this project does. For example: *MATLAB/Simulink simulatio
 - It is important to consider that this was my first 'big' project. It was entirely realized in 6 months, the unexperience and short deadline made me do some parts not as optimal as possible or containing bugs and innacuraccies. 
 - Each project includes its own detailed `README.md` file inside its folder.
 
-![image](https://github.com/user-attachments/assets/99faa0fd-3b0a-4028-aaa7-1a3ef6e5c4a5)
+
 
 ---
 
