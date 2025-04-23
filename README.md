@@ -20,24 +20,24 @@ Here is a photo of the final solution:
 Implementation of the bare-metal firmware in a MSP430 microcontroller from TI.
 
 **Key Features:**
-- Key feature 1
-- Key feature 2
-- Key feature 3
+- All code was developed for a MSP430 from TI. 
+- It is not a real-time application, so no time requirements were needed to be met. 
+- It receives and sends data with a GUI in Python through UART protocol
 
-**Location:** `/Project1/`
+**Location:** `/HydroPore_FW/`
 
 ---
 
 ## 📁 Project 2 - [HydroPore_Cameras]
 
 **Description:**  
-This project was intended to control 1 serial camera with Arduino. Its objective was to trigger the camera, read the photo information and save it in an SD card. 
+This project was intended to control 1 serial camera with Arduino (we had a total of 4 cameras, so 4 arduinos). Its objective was to trigger the camera capture, read the image information and save it in an SD card every time the main uController asked to. 
 
 **Key Features:**
-- Key feature 1
-- Key feature 2
+- Received triggers from central control card with normal GPIOs.
+- Protocol used for sending image information from Arduino to SD shell was SPI. 
 
-**Location:** `/Project2/`
+**Location:** `/HydroPore_Cameras/`
 
 ---
 
@@ -50,7 +50,7 @@ Simple Python GUI using 'tkinter' for sending commands and receiving data from s
 - Serial communication with UART
 - It generates a 'RESULTS.txt' file with data from sensors.
 
-**Location:** `/Project3/`
+**Location:** `/HydroPore_GUI/`
 
 ---
 
@@ -62,14 +62,13 @@ This is the PCB where all conditioning circuits and the microcontroller are allo
 **Key Features:**
 - Supplied by 2 sources, one for the power part (actuator) and one for the conditioning of sensors data. 
 - UART communication for exchanging data with GUI in Python. 
-- Key feature 3
 
 **Location:** `/PCB_Project_HydroPore/`
 
 ---
 ## 📌 Additional Notes
 
-- It is important to consider that this was my first 'big' project. It was entirely realized in 6 months, the unexperience and short deadline made me do some parts not as optimal as possible or containing bugs and innacuraccies. 
+- It is important to consider that this was my first 'big' project. It was entirely realized in 6 months, the short experience and short deadline may made me do some parts not as optimal as possible or containing bugs and innacuraccies. 
 - Each project includes its own detailed `README.md` file inside its folder.
 
 
