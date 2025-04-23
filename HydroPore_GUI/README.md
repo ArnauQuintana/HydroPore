@@ -1,4 +1,6 @@
 # HydroPore_GUI
+The project was developed with Jupyter Notebook.
+The GUI was a simple screen with buttons to move around the menus and reach the command needed.
 
 ## Main Menu:
 ![image](https://github.com/user-attachments/assets/79c88631-d809-417d-bcc2-adfd972017bc)
