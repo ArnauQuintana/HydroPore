@@ -1,8 +1,11 @@
 # HydroPore Cameras
 
-- Cameras look like:
+- Cameras looked like:
+  
 ![image](https://github.com/user-attachments/assets/3bca824b-3599-4052-8132-8f55bfd73695)
 
 
+- PCB built to allocate the camera, the arduino and the SD card shield:
+  
 ![image](https://github.com/user-attachments/assets/b0852c91-de5d-45bb-98f1-c3d9fec497ca)
 
